@@ -7,4 +7,11 @@ def index(request):
     return render(request, 'index.html', {
         'books': books
     })
-# Create your views here.
+
+
+def book_detail(request, slug):
+    book = Book.objects.get(slug=slug)
+
+    return render(request, 'books/book_detail.html', {
+        'book': book,
+    })

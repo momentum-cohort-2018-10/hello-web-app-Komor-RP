@@ -3,10 +3,9 @@
 {% block title %}
     Homepage - {{ block.super }}
 {% endblock title %}
+<h2>test</h2>
 {% block content %}
-    {% for book in books %}
-    <h2><a href="{% url 'book_detail' slug=book.slug %}">{{ book.name }}</a></h2>
+    <h1>{{ book.name }}</h1>
     <p>{{ book.description }}</p>
-    {% endfor %}
 {% endblock content %}
         
