@@ -4,9 +4,9 @@
     Homepage - {{ block.super }}
 {% endblock title %}
 {% block content %}
-    <h1>Hello World!</h1>
-    <p>There are {{ number|apnumber }} dogs!</p>
-    <p>This is my name: {{ thing|truncatewords:1 }}</p>
-    <p>I am a basic website.</p>
+    {% for book in books %}
+    <h2>{{ book.name }}</h2>
+    <p>{{ book.description }}</p>
+    {% endfor %}
 {% endblock content %}
         

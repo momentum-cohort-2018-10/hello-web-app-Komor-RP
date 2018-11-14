@@ -1,13 +1,10 @@
 from django.shortcuts import render
-
-
+from Library.models import Book
 
 
 def index(request):
-    number = 6
-    thing = "Thing name"
+    books = Book.objects.all()
     return render(request, 'index.html', {
-        'number': number,
-        'thing': thing,
+        'books': books
     })
 # Create your views here.
