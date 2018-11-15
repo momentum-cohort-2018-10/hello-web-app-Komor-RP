@@ -7,17 +7,25 @@
                 My Hello Web App Project
             {% endblock title %}
         </title>
+        <link rel="stylesheet" href="https://static.fontawesome.com/css/fontawesome-app.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}" >
         {% block header %}{% endblock header %}
     </head>
     <body>
         <header>
-            <h1>Hello Web App</h1>
+            <h1>Hello Web App <i class="fas fa-books"></i></h1>
             <nav>
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'auth_login' %}">Login</a></li>
+                    <li><a href="{% url 'registration_register' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>

@@ -4,9 +4,13 @@
     Homepage - {{ block.super }}
 {% endblock title %}
 {% block content %}
+
     {% for book in books %}
-    <h2><a href="{% url 'book_detail' slug=book.slug %}">{{ book.name }}</a></h2>
-    <p>{{ book.description }}</p>
+    <div class="book">
+        <h2><a href="{% url 'book_detail' slug=book.slug %}">{{ book.name }}</a></h2>
+        <p>{{ book.description }}</p>
+        <a href="{% url 'edit_book' slug=book.slug %}">Edit</a>
+    </div>
     {% endfor %}
 {% endblock content %}
         

@@ -1,3 +1,30 @@
 body {
     background-color: #c8ffec;
+    margin: 0;
+}
+header h1 {
+    text-align: center;
+}
+nav {
+    background-color: wheat;
+    text-align: center;
+    margin-bottom: 40px;
+}
+nav ul {
+    list-style: none;
+    display: inline;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    padding: 0 3px;
+}
+nav ul li a {
+    text-decoration: none;
+}
+
+.book {
+    margin: 15px;
 }
