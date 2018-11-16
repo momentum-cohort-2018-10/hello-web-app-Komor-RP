@@ -9,4 +9,9 @@
         {{ form.as_p }}
         <input type="submit" value="Submit" />
     </form>
+    <p>
+        <a href="{% url 'password_reset' %}">
+            Forgot your Password?
+        </a>
+    </p>
 {% endblock content%}
