@@ -7,17 +7,21 @@
                 My Hello Web App Project
             {% endblock title %}
         </title>
-        <link rel="stylesheet" href="https://static.fontawesome.com/css/fontawesome-app.css">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif" rel="stylesheet"> 
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}" >
         {% block header %}{% endblock header %}
     </head>
     <body>
         <header>
-            <h1>Hello Web App <i class="fas fa-books"></i></h1>
-            <nav>
+            <div>
+                <h1><a href="{% url 'home' %}">Hello Web App <i class="fas fa-books"></i></a></h1>
+                <a id="open-menu"><i class="fas fa-bars"></i></a>
+            </div>
+            <nav class="mobile">
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'browse' %}">Browse</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
                     {% if user.is_authenticated %}
@@ -27,12 +31,30 @@
                     <li><a href="{% url 'auth_login' %}">Login</a></li>
                     <li><a href="{% url 'registration_register' %}">Register</a></li>
                     {% endif %}
+                    
                 </ul>
             </nav>
+            <!-- <nav class="normal">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'browse' %}">Browse</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'password_change' %}">Change Password</a></li>
+                    <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'auth_login' %}">Login</a></li>
+                    <li><a href="{% url 'registration_register' %}">Register</a></li>
+                    {% endif %}
+                    
+                </ul>
+            </nav> -->
         </header>
         <div class="main-container">
             {% block content %}{% endblock content %}
         </div>
         {% block footer %}{% endblock footer %}
+        <script src="{% static 'js/index.js' %}"></script>
     </body>
 </html>

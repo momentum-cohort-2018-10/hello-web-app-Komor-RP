@@ -8,6 +8,12 @@
     <div class="book">
         <h1>{{ book.name }}</h1>
         <p>{{ book.description }}</p>
+        {% if user == book.user %}
+            <p>
+                <a href="{% url 'edit_book' slug=book.slug %}">Edit me!</a>
+            </p>
+        {% endif %}
     </div>
+
 {% endblock content %}
         

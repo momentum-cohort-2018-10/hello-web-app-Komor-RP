@@ -1,28 +1,92 @@
 body {
-    background-color: #c8ffec;
+    background-color: #fff8e2;
     margin: 0;
+}
+h1, h2 {
+    font-family: 'PT Serif', serif;
+}
+p, a {
+    font-family: 'PT Sans', sans-serif;
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 1.5rem;
+}
+h2 { 
+    font-size: 2rem;
+}
+h2 a {
+    text-decoration: none;
+    color: #947000;
+}
+p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+header {
+    background-color: #ffefe9;
 }
 header h1 {
     text-align: center;
+    display: inline;
 }
-nav {
-    background-color: wheat;
+header h1 a{
+    color: #363636;
+    text-decoration: none;
+}
+nav.normal {
+    background-color: #e2e9ff;
     text-align: center;
     margin-bottom: 40px;
+    display: none;
 }
-nav ul {
+header > div {
+    background-color: #ffefe9;
+    position: relative;
+    padding: 20px 0;
+}
+header>div>a {
+   float: right;
+   font-size: 2rem;
+   padding: 10px 15px;
+}
+nav.mobile {
+   text-align: center;
+   display: none;
+   transition: all .4s ease;
+}
+nav.mobile.open {
+    animation-duration: 1s;
+    animation-name: slidein;
+    display: block;
+}
+@keyframes slidein {
+    from {
+       position: absolute;
+       margin-top: -100%;
+       top: -100%;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+nav.mobile ul {
     list-style: none;
-    display: inline;
     padding: 0;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    padding: 10px 0;
 }
-nav ul li {
-    display: inline;
-    font-size: 1.4rem;
-    line-height: 3rem;
-    padding: 0 3px;
+nav.mobile ul li {
+    border-top: 1px solid black;
+    font-size: 1.2rem;
+    letter-spacing: .2px;
+    
 }
 nav ul li a {
     text-decoration: none;
+    color: #876800;
 }
 
 .book {
@@ -31,4 +95,23 @@ nav ul li a {
 
 .main-container {
     margin: 15px;
+}
+@media screen and (min-width:860px) {
+    header>div>a {
+        display: none;
+    }
+    nav.mobile {
+        display: block;
+    }
+    nav.mobile ul {
+        position: absolute;
+        padding-right: 20px;
+        right: 0;
+        top: 0;
+    }
+    nav.mobile ul li {
+        border: none;
+        display: inline;
+        padding: 0 3px;
+    }
 }
