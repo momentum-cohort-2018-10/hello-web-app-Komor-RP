@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "818998f6eb82aece5fa93f8517ce07f32bc14a761ae525fdc0edf99e547d5bd8"
+            "sha256": "7b2aff605e2a90e1a9aa2c73f149e330ab1027b6dfb49f1c7fc4310ef58b8ddd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -54,14 +54,6 @@
             "index": "pypi",
             "version": "==19.9.0"
         },
-        "hellowebapp-deploy": {
-            "hashes": [
-                "sha256:200d8da0a03285398b9bad36bb397eb48a9cfd4935500b21b3e0626432c9c3ca",
-                "sha256:9b95b8243d371ee0695ee9fc86d526bedff55d95ce7cbc67e7ebe55905f062f5"
-            ],
-            "index": "pypi",
-            "version": "==1.0.2"
-        },
         "mccabe": {
             "hashes": [
                 "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42",
@@ -112,13 +104,6 @@
             ],
             "index": "pypi",
             "version": "==2018.7"
-        },
-        "waitress": {
-            "hashes": [
-                "sha256:40b0f297a7f3af61fbfbdc67e59090c70dc150a1601c39ecc9f5f1d283fb931b",
-                "sha256:d33cd3d62426c0f1b3cd84ee3d65779c7003aae3fc060dee60524d10a57f05a9"
-            ],
-            "version": "==1.1.0"
         },
         "whitenoise": {
             "hashes": [
