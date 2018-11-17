@@ -3,4 +3,4 @@ django-registration-redux==2.0
 mccabe==0.6.1
 pytz==2018.7
 hellowebapp-deploy
-psycopg2==2.7.6
+psycopg2==2.7
