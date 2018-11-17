@@ -1,5 +1,5 @@
 from hellowebapp.settings import *
-
+import django_heroku
 import dj_database_url
 
 DATABASES['default'] = dj_database_url.config()
@@ -11,3 +11,4 @@ ALLOWED_HOSTS = ['*']
 DEBUG = False
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())

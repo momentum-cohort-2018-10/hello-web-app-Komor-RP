@@ -8,7 +8,8 @@ django-registration-redux = "==2.0"
 mccabe = "==0.6.1"
 pytz = "==2018.7"
 Django = "==2.1.3"
-hellowebapp-deploy = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 
