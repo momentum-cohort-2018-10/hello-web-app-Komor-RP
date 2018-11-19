@@ -13,6 +13,9 @@
                 <a href="{% url 'edit_book' slug=book.slug %}">Edit me!</a>
             </p>
         {% endif %}
+        {% for upload in uploads %}
+        <img src="{{ upload.image.url }}" alt="" />
+        {% endfor %}
     </div>
 
 {% endblock content %}

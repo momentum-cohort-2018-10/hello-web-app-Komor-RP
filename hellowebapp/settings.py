@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -33,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'Library',
     'registration',
+    'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,6 +129,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+SERVER_EMAIL = 'testing@example.com'
+ADMINS = [
+    ('Fan', 'fan.huang.33@gmail.com'),
+]
+
 
 ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

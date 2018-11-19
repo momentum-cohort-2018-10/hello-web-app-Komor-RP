@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Social Media Accounts for {{ user|title }} - {{ block.super }}
+{% endblock title %}
+{% block content %}
+    {% if social_accounts %}
+    <h1>Social Media Accounts for {{ user|title }}</h1>
+    <ul>
+        {% for social_acount in social_accounts %}
+        <li>
+            <a href="http://{{ social_acount.network }}.com/{{ social_acount.username }}">
+                {{ social_acount.network|title }}
+            </a>
+        </li>
+        {% endfor %}   
+    </ul>
+    {% endif %}
+{% endblock content %}

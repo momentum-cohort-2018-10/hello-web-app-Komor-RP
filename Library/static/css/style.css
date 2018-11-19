@@ -2,7 +2,7 @@ body {
     background-color: #fff8e2;
     margin: 0;
 }
-h1, h2 {
+h1, h2, h1 > a, h2 > a  {
     font-family: 'PT Serif', serif;
 }
 p, a {

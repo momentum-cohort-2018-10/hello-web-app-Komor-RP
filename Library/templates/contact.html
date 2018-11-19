@@ -3,7 +3,12 @@
     Contact - {{ block.super }}
 {% endblock title %}
 {% block content %}
-    <h1>Contact page</h1>
-    <p>Contact content.</p>
+    <h1>Contact</h1>
+    <form action="" role="form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
 {% endblock content %}
         

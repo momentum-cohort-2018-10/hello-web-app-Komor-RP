@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView, RedirectView
-
 from Library import views
 from Library.backends import MyRegistrationView
+from django.contrib.sitemaps.views import sitemap
+from Library.sitemap import (
+    BookSiteMap,
+    StaticSitemap,
+    HomepageSitemap,
+)
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
@@ -12,6 +17,14 @@ from django.contrib.auth.views import (
     PasswordChangeView,
     PasswordChangeDoneView,
 )
+from django.conf import settings
+from django.views.static import serve
+from django.urls import re_path
+sitemaps = {
+    'books': BookSiteMap,
+    'static': StaticSitemap,
+    'homepage': HomepageSitemap,
+}
 
 
 urlpatterns = [
@@ -20,14 +33,14 @@ urlpatterns = [
          TemplateView.as_view(template_name='about.html'),
          name='about'),
 
-    path('contact/',
-         TemplateView.as_view(template_name='contact.html'),
-         name='contact'),
-
-
+    path('contact/', views.contact, name='contact'),
 
     path('books/<slug>/', views.book_detail, name="book_detail"),
     path('books/<slug>/edit', views.edit_book, name='edit_book'),
+
+    path('books/<slug>/edit/images/',
+         views.edit_book_uploads,
+         name="edit_book_uploads"),
 
     path('browse/', RedirectView.as_view(
          pattern_name='browse', permanent=True)),
@@ -79,6 +92,18 @@ urlpatterns = [
          views.create_book,
          name='registration_create_book'),
 
+    path('user/<username>/', views.user_detail, name="user_detail"),
+
     path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name="django.contrib.sitemaps.views.sitemap"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]
